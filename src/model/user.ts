@@ -1,4 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToOne,
+  JoinColumn,
+} from "typeorm";
+import { Profile } from "./profile";
 
 @Entity()
 export class User {
@@ -7,6 +14,10 @@ export class User {
 
   @Column()
   name: string;
+
+  @OneToOne(() => Profile, { cascade: true, eager: true, onDelete: "CASCADE" }) //db it store profileID , but pass as entire obj at time of profile= {}
+  @JoinColumn()
+  profile: Profile;
 }
 
 // simple model , OOPS user class without functionality = schema

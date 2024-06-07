@@ -99,6 +99,8 @@ export class User {//by default it take class name in lower case as table name
 # step 8
 
 ```
-ORM create a repository when it call an entity class to transform/create table in database
+- ORM create a repository when it call an entity class to transform/create table in database,
+- when create datasource ,it having a function called source.getRepository(entitycalls add),
+- and able to do CRUD operations
 
 ```
